@@ -1,19 +1,24 @@
 {
-  "name": "PLUGIN",
+  "name": "alpinejs-axios",
   "version": "1.0.0",
-  "description": "DESCRIPTION",
+  "description": "Alpine JS magic methods for Axios API methods 📨",
   "keywords": [
     "Alpine",
     "Alpine JS",
     "Alpine JS Plugin",
-    "Alpine JS Plugins"
+    "Alpine JS Plugins",
+    "Axios",
+    "Alpine JS Axios",
+    "Alpine JS API",
+    "Alpine JS Fetch"
   ],
-  "module": "dist/FILE.esm.js",
-  "unpkg": "dist/FILE.min.js",
+  "module": "dist/api.esm.js",
+  "unpkg": "dist/api.min.js",
   "scripts": {
     "build": "node scripts/build.js"
   },
   "devDependencies": {
-    "esbuild": "^0.16.2"
+    "axios": "^1.5.1",
+    "esbuild": "^0.19.4"
   }
 }

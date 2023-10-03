@@ -1,12 +1,12 @@
 buildPlugin({
   entryPoints: ['builds/cdn.js'],
-  outfile: 'dist/FILE.min.js',
+  outfile: 'dist/api.min.js',
 })
 
 buildPlugin({
   entryPoints: ['builds/module.js'],
-  outfile: 'dist/FILE.esm.js',
-  platform: 'neutral',
+  outfile: 'dist/api.esm.js',
+  platform: 'node',
   mainFields: ['main', 'module'],
 })
 
