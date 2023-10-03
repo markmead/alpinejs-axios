@@ -1,6 +1,6 @@
 # Alpine JS Axios
 
-Alpine JS magic methods for Axios API methods 📨
+Alpine JS magic methods wrapper for Axios API methods 📨
 
 ## Install
 
