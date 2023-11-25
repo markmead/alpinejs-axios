@@ -128,6 +128,36 @@ For example, `[status]`.
 _Heads up! Syntax is important, the filter property key must be place in square
 brackets `[x]`._
 
+### Nested Filters
+
+Sometimes you don't want the whole object back, in this example `data` returns a
+lot of information but we only want `title` and `price` back. Here's how you can
+do that.
+
+```html
+
+  <button
+    @click="productData = await $get('https://dummyjson.com/products/1[data.title, data.price]')"
+  >
+    Get
+  </button>
+
+  <pre x-text="JSON.stringify(productData, null, 2)"></pre>
+</div>
+```
+
+This will return with the first key, in this case `data` omitted.
+
+```json
+{
+  "title": "iPhone 9",
+  "price": 549
+}
+```
+
+_Note! You can still pass other filters in when using nested filters, something
+like `[data.title, status]` will work fine!_
+
 ## Stats
 
 ![](https://img.shields.io/bundlephobia/min/alpinejs-axios)

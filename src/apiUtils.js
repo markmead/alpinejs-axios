@@ -10,7 +10,21 @@ export function filterResponse(apiResponse, responseData) {
   const dataKeys = responseData.split(',').map((dataKey) => dataKey.trim())
 
   dataKeys.forEach((dataKey) => {
-    filteredApiResponse[dataKey] = apiResponse[dataKey]
+    const [mainKey, ...restKeys] = dataKey.split('.') || []
+
+    if (!restKeys.length) {
+      filteredApiResponse[mainKey] = apiResponse[mainKey]
+
+      return
+    }
+
+    let nestedApiResponse = apiResponse[mainKey]
+
+    restKeys.forEach((restKey) => {
+      filteredApiResponse[restKey] = nestedApiResponse[restKey]
+
+      nestedApiResponse = nestedApiResponse[restKey]
+    })
   })
 
   return filteredApiResponse
