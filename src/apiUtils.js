@@ -4,3 +4,28 @@ export function splitUrl(apiUrl) {
 
   return { endpointUrl, endpointData }
 }
+
+export function filterResponse(apiResponse, responseData) {
+  const filteredApiResponse = {}
+  const dataKeys = responseData.split(',').map((dataKey) => dataKey.trim())
+
+  dataKeys.forEach((dataKey) => {
+    const [mainKey, ...restKeys] = dataKey.split('.') || []
+
+    if (!restKeys.length) {
+      filteredApiResponse[mainKey] = apiResponse[mainKey]
+
+      return
+    }
+
+    let nestedApiResponse = apiResponse[mainKey]
+
+    restKeys.forEach((restKey) => {
+      filteredApiResponse[restKey] = nestedApiResponse[restKey]
+
+      nestedApiResponse = nestedApiResponse[restKey]
+    })
+  })
+
+  return filteredApiResponse
+}

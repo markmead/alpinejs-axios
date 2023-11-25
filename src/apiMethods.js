@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { splitUrl } from './apiUtils'
+import { filterResponse, splitUrl } from './apiUtils'
 
 export const apiGet = (apiUrl = '', apiOptions = {}) => {
   async function getApiResponse() {
@@ -9,7 +9,11 @@ export const apiGet = (apiUrl = '', apiOptions = {}) => {
 
       const apiResponse = await axios.get(endpointUrl, apiOptions)
 
-      return endpointData ? apiResponse[endpointData] : apiResponse
+      if (!endpointData) {
+        return apiResponse
+      }
+
+      return filterResponse(apiResponse, endpointData)
     } catch (apiError) {
       return apiError
     }
@@ -25,7 +29,11 @@ export const apiPost = (apiUrl = '', apiData = {}, apiOptions = {}) => {
 
       const apiResponse = await axios.post(endpointUrl, apiData, apiOptions)
 
-      return endpointData ? apiResponse[endpointData] : apiResponse
+      if (!endpointData) {
+        return apiResponse
+      }
+
+      return filterResponse(apiResponse, endpointData)
     } catch (apiError) {
       return apiError
     }
@@ -41,7 +49,11 @@ export const apiPut = (apiUrl = '', apiData = {}, apiOptions = {}) => {
 
       const apiResponse = await axios.put(endpointUrl, apiData, apiOptions)
 
-      return endpointData ? apiResponse[endpointData] : apiResponse
+      if (!endpointData) {
+        return apiResponse
+      }
+
+      return filterResponse(apiResponse, endpointData)
     } catch (apiError) {
       return apiError
     }
@@ -57,7 +69,11 @@ export const apiDelete = (apiUrl = '', apiOptions = {}) => {
 
       const apiResponse = await axios.delete(endpointUrl, apiOptions)
 
-      return endpointData ? apiResponse[endpointData] : apiResponse
+      if (!endpointData) {
+        return apiResponse
+      }
+
+      return filterResponse(apiResponse, endpointData)
     } catch (apiError) {
       return apiError
     }
