@@ -102,8 +102,17 @@ With this package you can do that by adding `[data]` to the end of the URL.
 
 ```html
 <div x-data="{ productData: {} }">
+  <!-- Single -->
   <button
     @click="productData = await $get('https://dummyjson.com/products/1[data]')"
+  >
+    Get
+  </button>
+
+  <!-- Multiple -->
+  <!-- Comma separation is optional -->
+  <button
+    @click="productData = await $get('https://dummyjson.com/products/1[data, status]')"
   >
     Get
   </button>

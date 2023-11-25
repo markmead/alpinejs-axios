@@ -4,3 +4,14 @@ export function splitUrl(apiUrl) {
 
   return { endpointUrl, endpointData }
 }
+
+export function filterResponse(apiResponse, responseData) {
+  const filteredApiResponse = {}
+  const dataKeys = responseData.split(',').map((dataKey) => dataKey.trim())
+
+  dataKeys.forEach((dataKey) => {
+    filteredApiResponse[dataKey] = apiResponse[dataKey]
+  })
+
+  return filteredApiResponse
+}
