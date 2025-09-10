@@ -1,6 +1,6 @@
 {
   "name": "alpinejs-axios",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Alpine JS magic methods wrapper for Axios API methods 📨",
   "keywords": [
     "Alpine",
@@ -18,7 +18,7 @@
     "build": "node scripts/build.js"
   },
   "devDependencies": {
-    "axios": "^1.6.8",
-    "esbuild": "^0.25.0"
+    "axios": "^1.11.0",
+    "esbuild": "^0.25.9"
   }
 }
