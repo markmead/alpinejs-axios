@@ -1,5 +1,9 @@
 # Alpine JS Axios
 
+![](https://img.shields.io/npm/v/alpinejs-axios)
+![](https://img.shields.io/npm/dt/alpinejs-axios)
+![](https://img.shields.io/github/license/markmead/alpinejs-axios)
+
 Alpine JS magic methods wrapper for Axios API methods 📨
 
 ## Install
@@ -12,7 +16,7 @@ Alpine JS magic methods wrapper for Axios API methods 📨
   src="https://unpkg.com/alpinejs-axios@latest/dist/api.min.js"
 ></script>
 
-<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script defer src="https://unpkg.com/alpinejs@3/dist/cdn.min.js"></script>
 ```
 
 ### With a Package Manager
@@ -64,7 +68,6 @@ Alpine.start()
 
 ```html
 <div x-data="{ productData: {} }">
-  <!-- You can also use $patch -->
   <button
     @click="productData = await $put('https://dummyjson.com/products/1', { title: 'iPhone Galaxy +1' })"
   >
@@ -110,9 +113,8 @@ With this package you can do that by adding `[data]` to the end of the URL.
   </button>
 
   <!-- Multiple -->
-  <!-- Comma separation is optional -->
   <button
-    @click="productData = await $get('https://dummyjson.com/products/1[data, status]')"
+    @click="productData = await $get('https://dummyjson.com/products/1[data,status]')"
   >
     Get
   </button>
@@ -137,7 +139,7 @@ do that.
 ```html
 
   <button
-    @click="productData = await $get('https://dummyjson.com/products/1[data.title, data.price]')"
+    @click="productData = await $get('https://dummyjson.com/products/1[data.title,data.price]')"
   >
     Get
   </button>
@@ -157,10 +159,3 @@ This will return with the first key, in this case `data` omitted.
 
 _Note! You can still pass other filters in when using nested filters, something
 like `[data.title, status]` will work fine!_
-
-## Stats
-
-![](https://img.shields.io/bundlephobia/min/alpinejs-axios)
-![](https://img.shields.io/npm/v/alpinejs-axios)
-![](https://img.shields.io/npm/dt/alpinejs-axios)
-![](https://img.shields.io/github/license/markmead/alpinejs-axios)
